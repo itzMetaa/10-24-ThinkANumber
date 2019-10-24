@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView heart1, heart2, heart3, heart4, heart5;
     private Random r;
     private int Eletek, gondoltSzam, tipp;
-    private List<ImageView> eletek;
+    private static List<ImageView> eletek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         heart3 = findViewById(R.id.heart3);
         heart4 = findViewById(R.id.heart4);
         heart5 = findViewById(R.id.heart5);
+
         //eletek.add(heart1);
         //eletek.add(heart2);
         //eletek.add(heart3);
@@ -71,19 +72,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.buttonSend:
-                
                 if (tipp>gondoltSzam)
                 {
                     Toast.makeText(MainActivity.this, "Lejjebb", Toast.LENGTH_SHORT).show();
-                }
+                } else
                 if (tipp<gondoltSzam)
                 {
                     Toast.makeText(MainActivity.this, "Feljebb", Toast.LENGTH_SHORT).show();
-                }
+                } else
                 if (tipp==gondoltSzam)
                 {
                     Toast.makeText(MainActivity.this, "Nyertél", Toast.LENGTH_SHORT).show();
-                    gondoltSzam = r.nextInt(10);
+                    //gondoltSzam = r.nextInt(10);
                     tipp=0;
                     textTipp.setText(""+tipp);
                 }
